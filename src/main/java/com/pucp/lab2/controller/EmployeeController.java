@@ -15,6 +15,6 @@ import java.util.Optional;
 @Controller
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
+    //@Autowired
+    //private EmployeeRepository employeeRepository;
 }
