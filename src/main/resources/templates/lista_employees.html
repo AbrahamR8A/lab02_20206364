@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Employees</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary mb-0">Listado de Employees</h2>
+        <div>
+            <!--<a th:href="@{/mascotas/reporte}" class="btn btn-info text-white me-2">Ver Reporte</a>
+            <a th:href="@{/mascotas/nuevo}" class="btn btn-success">Registrar Mascota</a>-->
+        </div>
+    </div>
+
+    <!--<div class="card mb-4">
+        <div class="card-body">
+            <form method="get" action="/employees" class="row g-3 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" name="nombre" class="form-control" th:value="${nombreStr}">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Especie</label>
+                    <select name="especie" class="form-select">
+                        <option value="">Todas</option>
+                        <option value="Perro" th:selected="${especieStr == 'Perro'}">Perro</option>
+                        <option value="Gato" th:selected="${especieStr == 'Gato'}">Gato</option>
+                        <option value="Loro" th:selected="${especieStr == 'Loro'}">Loro</option>
+                        <option value="Conejo" th:selected="${especieStr == 'Conejo'}">Conejo</option>
+                        <option value="Pez" th:selected="${especieStr == 'Pez'}">Pez</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Estado</label>
+                    <select name="estado" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="EN_ESPERA" th:selected="${estadoStr == 'EN_ESPERA'}">EN_ESPERA</option>
+                        <option value="ATENDIDO" th:selected="${estadoStr == 'ATENDIDO'}">ATENDIDO</option>
+                        <option value="EN_TRATAMIENTO" th:selected="${estadoStr == 'EN_TRATAMIENTO'}">EN_TRATAMIENTO</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary w-100 mb-2">Buscar</button>
+                    <a href="/mascotas" class="btn btn-outline-secondary w-100">Limpiar</a>
+                </div>
+            </form>
+        </div>
+    </div> -->
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>telefono</th>
+            <th>Fecha de contratación</th>
+            <th>Puesto</th>
+            <th>Salario</th>
+            <th>Comisión</th>
+            <th>ID del manager</th>
+            <th>ID del department</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.employee_id}"></td>
+            <td th:text="${employee.first_name}"></td>
+            <td th:text="${employee.last_name}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.phone_number}"></td>
+            <td th:text="${employee.hire_date}"></td>
+            <td th:text="${employee.job_id}"></td>
+            <td th:text="${employee.salary}"></td>
+            <td th:text="${employee.commission_pct}"></td>
+            <td th:text="${employee.manager_id}"></td>
+            <td th:text="${employee.department_id}"></td>
+            <td>
+                <!--<a th:href="@{/employee/editar(id=${employee.employee_id})}" class="btn btn-sm btn-warning">Editar</a>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+</html>
